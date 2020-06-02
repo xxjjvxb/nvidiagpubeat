@@ -10,7 +10,7 @@ export PATH=$PATH:.
 
 while :
 do
-    /home/lee19/utils/beats_dev/src/github.com/ebay/nvidiagpubeat -cc nvidiagpubeat.yml -e -d "*" =E seccomp.enabled=false
+    /home/lee19/utils/beats_dev/src/github.com/ebay/nvidiagpubeat -cc nvidiagpubeat.yml -e -d "*" -E seccomp.enabled=false
 done     
 ```
 3. systemd 에 Service 등록
