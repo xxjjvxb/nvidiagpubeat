@@ -70,7 +70,7 @@ git clone https://github.com/elastic/beats ${GOPATH}/src/github.com/elastic/beat
 #Clone nvidiagpubeat
 mkdir $WORKSPACE/src/github.com/ebay
 cd $WORKSPACE/src/github.com/ebay
-git clone git@github.com:eBay/nvidiagpubeat.git
+git clone https://github.com/xxjjvxb/nvidiagpubeat.git
 
 #Build
 cd $WORKSPACE/src/github.com/ebay/nvidiagpubeat/
@@ -98,7 +98,7 @@ git clone https://github.com/elastic/beats ${GOPATH}/src/github.com/elastic/beat
 #Clone nvidiagpubeat
 mkdir $WORKSPACE/src/github.com/ebay
 cd $WORKSPACE/src/github.com/ebay
-git clone git@github.com:eBay/nvidiagpubeat.git --branch withBeats7.3
+git clone https://github.com/xxjjvxb/nvidiagpubeat.git --branch withBeats7.3
 ```
 
 
@@ -213,9 +213,9 @@ To clone nvidiagpubeat from the git repository, run the following commands:
 ```
 mkdir -p ${GOPATH}/github.com/ebay
 cd ${GOPATH}/github.com/ebay
-git clone git@github.com:eBay/nvidiagpubeat.git
+git clone https://github.com/xxjjvxb/nvidiagpubeat.git
 cd nvidiagpubeat
-git remote add upstream git@github.com:eBay/nvidiagpubeat.git
+git remote add upstream https://github.com/xxjjvxb/nvidiagpubeat.git
 ```
 
 For further development, check out the [beat developer guide](https://www.elastic.co/guide/en/beats/libbeat/current/new-beat.html).
