@@ -10,7 +10,7 @@ export PATH=$PATH:.
 
 while :
 do
-    /home/lee19/utils/beats_dev/src/github.com/ebay/nvidiagpubeat   = c nvidiagpubeat.yml -e -d "*" =E seccomp.enabled=false
+    /home/lee19/utils/beats_dev/src/github.com/ebay/nvidiagpubeat -cc nvidiagpubeat.yml -e -d "*" =E seccomp.enabled=false
 done     
 ```
 3. systemd 에 Service 등록
@@ -23,7 +23,7 @@ vi /etc/systemd/system/nvbeat.service
 Description=Systemd NVIDIA-GPU-BEAT Daemon
 [Service]
 Type=simple
-ExecStart=/path/to/nvidiagpubeat/test-daemon.sh
+ExecStart=/home/lee19/utils/service_nvidiagpubeat.sh
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
@@ -32,8 +32,7 @@ WantedBy=multi-user.target
 서비스 등록 및 시작
 + 등록된 서비스 시작
 ```# systemctl start nvbeat```
-
-// 서비스 상태 체크
++ 서비스 상태 체크
 ```# systemctl status nvbeat```
 + 재부팅 후에도 서비스가 시작되도록 서비스 등록
 ```# systemctl enable testchk```
