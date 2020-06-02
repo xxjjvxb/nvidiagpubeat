@@ -1,4 +1,46 @@
-<!--
+개인의 사용의 편의를 위해 포크를 떠서 편집.
+메모의 기능.
+
+1. 깃 클론에서의 링크 수정.
+ - 수정된 README.md에 반영 되었음.
+2. service가 수행할 script 작성 # service_nvidiagpubeat.sh
+```bash                                                              
+echo -e `date` " : Start nvidia-gpu Systemd Test " >> ~/daemon_monitor.txt           
+export PATH=$PATH:.
+
+while :
+do
+    /home/lee19/utils/beats_dev/src/github.com/ebay/nvidiagpubeat   = c nvidiagpubeat.yml -e -d "*" =E seccomp.enabled=false
+done     
+```
+3. systemd 에 Service 등록
+systemd 에 서비스를 등록하기 위해 아래 경로에 아래와 같이 설정을 합니다.
+```
+vi /etc/systemd/system/nvbeat.service
+
+# /etc/systemd/system/nvbeat.service 내용
+[Unit]
+Description=Systemd NVIDIA-GPU-BEAT Daemon
+[Service]
+Type=simple
+ExecStart=/path/to/nvidiagpubeat/test-daemon.sh
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+```
+
+서비스 등록 및 시작
++ 등록된 서비스 시작
+```# systemctl start nvbeat```
+
+// 서비스 상태 체크
+```# systemctl status nvbeat```
++ 재부팅 후에도 서비스가 시작되도록 서비스 등록
+```# systemctl enable testchk```
+
+https://chhanz.github.io/linux/2019/01/18/linux-how-to-create-custom-systemd-service/ 
+
+!--
 This module was automatically generated using the framework found below:
 https://www.elastic.co/guide/en/beats/devguide/current/new-beat.html
 
